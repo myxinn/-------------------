@@ -78,33 +78,45 @@ with open('test_input-1.txt', 'r') as f:
 
 
 
+# 重新实现str.strip()
+def tt9():
+    def leftStrip(temStr, splitStr):
+        startIndex = temStr.find(splitStr)
+        while startIndex == 0:
+            temStr = temStr[startIndex + 1:]
+            startIndex = temStr.find(splitStr)
+        return temStr
+
+    def rightStrip(temStr, splitStr):
+        endIndex = temStr.rfind(splitStr)
+        while endIndex != -1 and endIndex == len(temStr) - 1:
+            temStr = temStr[:endIndex]
+            endIndex = temStr.rfind(splitStr)
+        return temStr
+
+    str = '   love  o   '
+    print(leftStrip(str, ' '))
+    print(rightStrip(str, ' '))
+
+
+#反转字符串
+
+def f3():
+    s = 'Hello World  !? '
+
+    def reverse1(s):
+        return s[::-1]
+
+    # print(reverse1(s)) #  ?!  dlroW olleH
+
+    def reverse2(s):
+        l = s.split(' ')
+        l.reverse()
+        return ' '.join(l)
+
+    print(reverse2(s))  # ( !?  World Hello)   今天以为说的分词是那种类似 结巴分词那种东西， 哎哎哎
+    print(reverse2('AB CD EF')) #EF CD AB
 
 
 
-# kk = ",Last month2006,   three of    China's four largest banks reported annual declines in fourth-quarter earnings for the first time since 2009."
-# k = "           Tianhe's shares rose rapidly after listing last June but it fell foul of short sellers in September, since when its share price has halved."
 
-# print('l' + test1(t))
-# print(kk.strip())
-# s = []
-# for i, t in enumerate(kk):
-#     if t in [',', '.', '!', '?', ':', ';']:
-#         t = ''
-#     if i < len(kk) - 1:
-#         # print(t)
-#         if t == ' ' and kk[i + 1] == ' ':
-#             t = ''
-#         if t in ['0','1','2','3','4','5','6','7','8','9']:
-#             if  kk[i - 1] in ['0','1','2','3','4','5','6','7','8','9']:
-#                 t = ''
-#             else:
-#                 # print(kk[i-1])
-#                 t = '==NUMBER=='
-#
-#
-#
-#
-#     s.append(t)
-# p = filter(kk.isdigit(), (kk)) /
-# print(''.join(s))
-# print( filter(kk.isdigit(), 'lo1l23l'))
